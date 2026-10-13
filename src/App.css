@@ -2665,4 +2665,643 @@ svg {
   }
 }
 
+/* ========================================
+   BALANCED ANIMATION POLISH
+======================================== */
+
+/* 1. Hero content — staggered entrance */
+.hero-content > .availability,
+.hero-content > .eyebrow,
+.hero-content > h1,
+.hero-content > .creative-role,
+.hero-content > .hero-description,
+.hero-content > .hero-buttons,
+.hero-content > .hero-footer {
+  animation: hero-element-in 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.hero-content > .availability {
+  animation-delay: 0.08s;
+}
+
+.hero-content > .eyebrow {
+  animation-delay: 0.16s;
+}
+
+.hero-content > h1 {
+  animation-delay: 0.24s;
+}
+
+.hero-content > .creative-role {
+  animation-delay: 0.32s;
+}
+
+.hero-content > .hero-description {
+  animation-delay: 0.4s;
+}
+
+.hero-content > .hero-buttons {
+  animation-delay: 0.48s;
+}
+
+.hero-content > .hero-footer {
+  animation-delay: 0.56s;
+}
+
+@keyframes hero-element-in {
+  from {
+    opacity: 0;
+    translate: 0 18px;
+  }
+
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+/* 2. Floating stage — soft ambient glow */
+.stage-glow {
+  animation: stage-glow-breathe 5s ease-in-out infinite;
+}
+
+@keyframes stage-glow-breathe {
+  0%,
+  100% {
+    opacity: 0.75;
+    filter: blur(10px);
+  }
+
+  50% {
+    opacity: 1;
+    filter: blur(16px);
+  }
+}
+
+/* Give the floating project windows a subtle depth effect */
+.project-window {
+  transition:
+    box-shadow 0.45s ease,
+    border-color 0.45s ease;
+}
+
+.project-window:hover {
+  border-color: rgba(182, 154, 248, 0.38);
+}
+
+/* Gentle movement for decorative sparkles */
+.sparkle-one {
+  animation: sparkle-drift 4s ease-in-out infinite;
+}
+
+.sparkle-two {
+  animation: sparkle-drift 4.8s ease-in-out infinite reverse;
+}
+
+@keyframes sparkle-drift {
+  0%,
+  100% {
+    translate: 0 0;
+    opacity: 0.65;
+  }
+
+  50% {
+    translate: 0 -7px;
+    opacity: 1;
+  }
+}
+
+/* 3. Scroll reveal — supported browsers only */
+@supports (animation-timeline: view()) {
+  .project-card,
+  .skill-card {
+    animation: scroll-card-reveal linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 28%;
+  }
+
+  .project-card:nth-child(2),
+  .skill-card:nth-child(2) {
+    animation-range: entry 0% entry 32%;
+  }
+}
+
+@keyframes scroll-card-reveal {
+  from {
+    opacity: 0.25;
+    translate: 0 24px;
+  }
+
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+/* 4. More polished button interactions */
+.primary-btn,
+.secondary-btn,
+.project-action,
+.nav-cta {
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.3s ease,
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.primary-btn:active,
+.secondary-btn:active,
+.project-action:active,
+.nav-cta:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.project-link-icon,
+.project-title-arrow,
+.project-art-arrow {
+  transition:
+    transform 0.3s ease,
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+/* 5. Accessible keyboard focus */
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible {
+  outline: 2px solid var(--lavender);
+  outline-offset: 4px;
+  border-radius: 5px;
+}
+
+/* 6. Reduced-motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .hero-content > .availability,
+  .hero-content > .eyebrow,
+  .hero-content > h1,
+  .hero-content > .creative-role,
+  .hero-content > .hero-description,
+  .hero-content > .hero-buttons,
+  .hero-content > .hero-footer,
+  .stage-glow,
+  .sparkle-one,
+  .sparkle-two,
+  .project-card,
+  .skill-card {
+    animation: none !important;
+    opacity: 1 !important;
+    translate: none !important;
+  }
+}
+
+/* =====================================
+   MORE VISIBLE ANIMATIONS — LUMÉ STYLE
+===================================== */
+
+/* 1. Icons inside project and skill cards */
+.project-card svg,
+.skill-card svg {
+  transform-origin: center;
+  animation: icon-float-strong 2.4s ease-in-out infinite;
+  transition:
+    color 0.3s ease,
+    filter 0.3s ease,
+    scale 0.3s ease;
+}
+
+/* Give icons different timings so they don't move together */
+.project-card:nth-child(2) svg,
+.skill-card:nth-child(2) svg {
+  animation-delay: 0.35s;
+}
+
+.project-card:nth-child(3) svg,
+.skill-card:nth-child(3) svg {
+  animation-delay: 0.7s;
+}
+
+@keyframes icon-float-strong {
+  0%, 100% {
+    translate: 0 0;
+    rotate: -4deg;
+  }
+  50% {
+    translate: 0 -8px;
+    rotate: 4deg;
+  }
+}
+
+/* 2. Icons become more noticeable on hover */
+.project-card:hover svg,
+.skill-card:hover svg {
+  scale: 1.18;
+  color: var(--lavender);
+  filter: drop-shadow(0 0 9px rgba(182, 154, 248, 0.65));
+}
+
+/* 3. Cards lift more clearly */
+.project-card,
+.skill-card {
+  transition:
+    transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1),
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.project-card:hover,
+.skill-card:hover {
+  transform: translateY(-9px) scale(1.015);
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.22),
+    0 0 22px rgba(110, 77, 155, 0.2);
+  border-color: rgba(182, 154, 248, 0.55);
+}
+
+/* 4. Decorative stars move more visibly */
+.creative-star,
+.projects-aside-star,
+.projects-endnote-star {
+  animation: star-motion 3s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@keyframes star-motion {
+  0%, 100% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(24deg) scale(1.2);
+  }
+}
+
+/* 5. Floating project mockups */
+.project-window.project-back {
+  animation: mockup-float-back 4s ease-in-out infinite;
+}
+
+.project-window.project-front {
+  animation: mockup-float-front 3.4s ease-in-out infinite;
+}
+
+@keyframes mockup-float-back {
+  0%, 100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -12px;
+  }
+}
+
+@keyframes mockup-float-front {
+  0%, 100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 10px;
+  }
+}
+
+/* 6. Buttons react more clearly */
+.primary-btn:hover,
+.secondary-btn:hover,
+.project-action:hover,
+.nav-cta:hover {
+  transform: translateY(-3px) scale(1.025);
+  box-shadow: 0 8px 24px rgba(110, 77, 155, 0.28);
+}
+
+/* 7. Keep animations accessible */
+@media (prefers-reduced-motion: reduce) {
+  .project-card svg,
+  .skill-card svg,
+  .creative-star,
+  .projects-aside-star,
+  .projects-endnote-star,
+  .project-window.project-back,
+  .project-window.project-front {
+    animation: none !important;
+  }
+
+  .project-card:hover,
+  .skill-card:hover {
+    transform: none;
+  }
+}
+
+/* ==========================================
+   CREATIVE MOTION UPGRADE
+   Stronger motion on desktop + mobile
+========================================== */
+
+/* 1. Hero text — more visible entrance */
+.hero-content > * {
+  animation: bold-hero-entrance 0.75s cubic-bezier(.16, 1, .3, 1) both;
+}
+
+.hero-content > *:nth-child(1) { animation-delay: 0.05s; }
+.hero-content > *:nth-child(2) { animation-delay: 0.15s; }
+.hero-content > *:nth-child(3) { animation-delay: 0.25s; }
+.hero-content > *:nth-child(4) { animation-delay: 0.35s; }
+.hero-content > *:nth-child(5) { animation-delay: 0.45s; }
+.hero-content > *:nth-child(6) { animation-delay: 0.55s; }
+.hero-content > *:nth-child(7) { animation-delay: 0.65s; }
+
+@keyframes bold-hero-entrance {
+  from {
+    opacity: 0;
+    translate: 0 35px;
+    scale: .97;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+    scale: 1;
+  }
+}
+
+/* 2. Hero decorative glow — breathing effect */
+.stage-glow {
+  animation: purple-glow-pulse 3s ease-in-out infinite !important;
+}
+
+@keyframes purple-glow-pulse {
+  0%, 100% {
+    opacity: .45;
+    scale: .92;
+    filter: blur(12px);
+  }
+  50% {
+    opacity: 1;
+    scale: 1.12;
+    filter: blur(24px);
+  }
+}
+
+/* 3. Floating project previews */
+.project-window.project-back {
+  animation: big-float-back 3.2s ease-in-out infinite !important;
+}
+
+.project-window.project-front {
+  animation: big-float-front 2.6s ease-in-out infinite !important;
+}
+
+@keyframes big-float-back {
+  0%, 100% { translate: 0 0; rotate: -2deg; }
+  50% { translate: 0 -22px; rotate: 1deg; }
+}
+
+@keyframes big-float-front {
+  0%, 100% { translate: 0 0; rotate: 1deg; }
+  50% { translate: 0 18px; rotate: -2deg; }
+}
+
+/* 4. Labels move independently */
+.floating-label.label-top {
+  animation: label-drift-top 2.8s ease-in-out infinite !important;
+}
+
+.floating-label.label-bottom {
+  animation: label-drift-bottom 3.3s ease-in-out infinite !important;
+}
+
+@keyframes label-drift-top {
+  0%, 100% { translate: 0 0; rotate: -2deg; }
+  50% { translate: 10px -14px; rotate: 3deg; }
+}
+
+@keyframes label-drift-bottom {
+  0%, 100% { translate: 0 0; rotate: 2deg; }
+  50% { translate: -10px 12px; rotate: -3deg; }
+}
+
+/* 5. Sparkles — noticeable twinkle */
+.sparkle-one,
+.sparkle-two,
+.creative-star,
+.projects-aside-star,
+.projects-endnote-star {
+  transform-origin: center;
+  animation: creative-twinkle 1.8s ease-in-out infinite !important;
+}
+
+.sparkle-two,
+.projects-aside-star {
+  animation-delay: .5s !important;
+}
+
+.projects-endnote-star {
+  animation-delay: .9s !important;
+}
+
+@keyframes creative-twinkle {
+  0%, 100% {
+    scale: .8;
+    rotate: -15deg;
+    opacity: .55;
+  }
+  50% {
+    scale: 1.35;
+    rotate: 25deg;
+    opacity: 1;
+  }
+}
+
+/* 6. Project cards — gentle continuous floating */
+.project-card {
+  animation: card-float 4s ease-in-out infinite;
+  transition:
+    transform .28s ease,
+    box-shadow .28s ease,
+    border-color .28s ease;
+}
+
+.project-card:nth-child(2) {
+  animation-delay: -.8s;
+}
+
+.project-card:nth-child(3) {
+  animation-delay: -1.6s;
+}
+
+.project-card:nth-child(4) {
+  animation-delay: -2.4s;
+}
+
+@keyframes card-float {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -7px; }
+}
+
+.project-card:hover {
+  translate: 0 -12px;
+  scale: 1.025;
+  box-shadow:
+    0 20px 45px rgba(0, 0, 0, .28),
+    0 0 28px rgba(182, 154, 248, .24);
+  border-color: rgba(182, 154, 248, .65);
+}
+
+/* 7. Project artwork gets a moving shine */
+.project-card-art {
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card-art::after {
+  content: "";
+  position: absolute;
+  top: -60%;
+  left: -75%;
+  width: 45%;
+  height: 220%;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, .13),
+    transparent
+  );
+  transform: rotate(22deg);
+  animation: artwork-shine 4s ease-in-out infinite;
+}
+
+@keyframes artwork-shine {
+  0%, 15% { left: -75%; }
+  55%, 100% { left: 140%; }
+}
+
+/* 8. Skill cards — alternating movement */
+.skill-card {
+  animation: skill-bob 3s ease-in-out infinite;
+  transition:
+    box-shadow .3s ease,
+    border-color .3s ease,
+    background-color .3s ease;
+}
+
+.skill-card:nth-child(even) {
+  animation-delay: -1.5s;
+}
+
+@keyframes skill-bob {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -9px; }
+}
+
+.skill-card:hover {
+  box-shadow: 0 0 25px rgba(182, 154, 248, .22);
+  border-color: rgba(182, 154, 248, .65);
+}
+
+/* 9. Icons inside cards */
+.project-card svg,
+.skill-card svg {
+  transform-origin: center;
+  animation: icon-pop-float 1.5s ease-in-out infinite;
+}
+
+.project-card:nth-child(2) svg,
+.skill-card:nth-child(even) svg {
+  animation-delay: .35s;
+}
+
+@keyframes icon-pop-float {
+  0%, 100% {
+    translate: 0 0;
+    rotate: -8deg;
+    scale: 1;
+  }
+  50% {
+    translate: 0 -9px;
+    rotate: 8deg;
+    scale: 1.12;
+  }
+}
+
+/* 10. Buttons — stronger interaction */
+.primary-btn,
+.secondary-btn,
+.project-action,
+.nav-cta {
+  transition:
+    transform .22s ease,
+    box-shadow .22s ease,
+    background-color .22s ease;
+}
+
+.primary-btn:hover,
+.secondary-btn:hover,
+.project-action:hover,
+.nav-cta:hover {
+  transform: translateY(-4px) scale(1.04);
+  box-shadow: 0 10px 28px rgba(110, 77, 155, .35);
+}
+
+.primary-btn:active,
+.secondary-btn:active,
+.project-action:active,
+.nav-cta:active {
+  transform: scale(.96);
+}
+
+/* 11. Mobile: keep motion visible without hover */
+@media (max-width: 768px) {
+  .project-window.project-back {
+    animation-duration: 3.5s !important;
+  }
+
+  .project-window.project-front {
+    animation-duration: 2.8s !important;
+  }
+
+  .floating-label.label-top {
+    animation-duration: 2.6s !important;
+  }
+
+  .floating-label.label-bottom {
+    animation-duration: 3s !important;
+  }
+
+  .project-card {
+    animation-duration: 3.2s;
+  }
+
+  .skill-card {
+    animation-duration: 2.8s;
+  }
+
+  .project-card-art::after {
+    animation-duration: 3.2s;
+  }
+}
+
+/* 12. Respect reduced-motion accessibility settings */
+@media (prefers-reduced-motion: reduce) {
+  .hero-content > *,
+  .stage-glow,
+  .project-window,
+  .floating-label,
+  .sparkle-one,
+  .sparkle-two,
+  .creative-star,
+  .projects-aside-star,
+  .projects-endnote-star,
+  .project-card,
+  .skill-card,
+  .project-card svg,
+  .skill-card svg,
+  .project-card-art::after {
+    animation: none !important;
+  }
+
+  .project-card:hover,
+  .skill-card:hover {
+    translate: none;
+    scale: 1;
+  }
+}
+
 

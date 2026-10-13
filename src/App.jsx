@@ -535,7 +535,7 @@ function App() {
                   rel="noopener noreferrer"
                 >
                   <span>WhatsApp</span>
-                  <span>↗</span>
+                  <span></span>
                 </a>
 
                 <a
