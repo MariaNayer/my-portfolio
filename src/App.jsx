@@ -79,7 +79,7 @@ function App() {
                   <span className="creative-outline">FRONT-END</span>
                   <span className="creative-solid">
                     DEVELOPER
-                    <span className="creative-star">✳</span>
+                    <span className="creative-star"></span>
                   </span>
                 </div>
               </div>
@@ -95,7 +95,7 @@ function App() {
 
             <div className="hero-buttons">
               <a className="primary-btn" href="#projects">
-                Explore My Work <span>↗</span>
+                Explore My Work <span></span>
               </a>
 
               <a className="secondary-btn" href="#contact">
@@ -116,7 +116,7 @@ function App() {
             <div className="orbit orbit-two"></div>
 
             <div className="floating-label label-top">
-              <span className="label-spark">✳</span>
+              <span className="label-spark"></span>
               Selected Work
             </div>
 
@@ -181,7 +181,7 @@ function App() {
                   rel="noreferrer"
                   aria-label="Visit FridgeChef"
                 >
-                  ↗
+                  
                 </a>
               </div>
             </article>
@@ -219,7 +219,7 @@ function App() {
                     <em>Lasting beauty.</em>
                   </h3>
                   <span className="shop-now">
-                    DISCOVER THE COLLECTION ↗
+                    DISCOVER THE COLLECTION 
                   </span>
                 </div>
 
@@ -244,20 +244,20 @@ function App() {
                   rel="noreferrer"
                   aria-label="Visit LUMÉ"
                 >
-                  ↗
+                 
                 </a>
               </div>
             </article>
 
             <div className="tech-float tech-react">
-              <span>⚛</span> React.js
+              <span></span> React.js
             </div>
 
             <div className="tech-float tech-code">
               <span>&lt;/&gt;</span> Clean Code
             </div>
 
-            <div className="sparkle sparkle-one">✳</div>
+            <div className="sparkle sparkle-one"></div>
             <div className="sparkle sparkle-two">✦</div>
           </div>
         </section>
@@ -285,7 +285,7 @@ function App() {
                   <br />
                   INTO EXPERIENCES.
                 </p>
-                <span className="projects-aside-star">✳</span>
+                <span className="projects-aside-star"></span>
               </div>
             </div>
 
@@ -312,7 +312,7 @@ function App() {
                     <span className="project-card-number">
                       PROJECT / {project.label}
                     </span>
-                    <span className="project-art-arrow">↗</span>
+                    <span className="project-art-arrow"></span>
                   </div>
 
                   {project.id === 1 ? (
@@ -335,7 +335,7 @@ function App() {
                         <div className="lume-art-hoop"></div>
                         <div className="lume-art-gem"></div>
                         <span className="lume-art-spark lume-spark-one">✧</span>
-                        <span className="lume-art-spark lume-spark-two">✳</span>
+                        <span className="lume-art-spark lume-spark-two"></span>
                       </div>
 
                       <span className="lume-art-wordmark">LUMÉ</span>
@@ -389,7 +389,7 @@ function App() {
                       <h3>{project.name}</h3>
                     </div>
 
-                    <span className="project-title-arrow">↗</span>
+                    <span className="project-title-arrow"></span>
                   </div>
 
                   <p>{project.description}</p>
@@ -407,7 +407,7 @@ function App() {
                       target="_blank"
                       rel="noreferrer"
                     >
-                      Explore Project <span>↗</span>
+                      Explore Project <span></span>
                     </a>
 
                     <a
@@ -416,7 +416,7 @@ function App() {
                       target="_blank"
                       rel="noreferrer"
                     >
-                      GitHub <span>↗</span>
+                      GitHub <span></span>
                     </a>
                   </div>
                 </div>
@@ -425,9 +425,9 @@ function App() {
           </div>
 
           <div className="projects-endnote">
-            <span className="projects-endnote-star">✳</span>
+            <span className="projects-endnote-star"></span>
             <span>MORE IDEAS. MORE THINGS TO BUILD.</span>
-            <a href="#contact">LET'S CONNECT ↗</a>
+            <a href="#contact">LET'S CONNECT </a>
           </div>
         </section>
 
@@ -525,7 +525,7 @@ function App() {
           <div className="connect-menu">
             <details>
               <summary className="primary-btn">
-                Connect Me <span>↗</span>
+                Connect Me <span></span>
               </summary>
 
               <div className="connect-options">
@@ -544,11 +544,11 @@ function App() {
                   rel="noopener noreferrer"
                 >
                   <span>LinkedIn</span>
-                  <span>↗</span>
+                  <span></span>
                 </a>
                 <a href="mailto:marianayer93@gmail.com">
                   <span>Email Me</span>
-                  <span>↗</span>
+                  <span></span>
                 </a>
 
               </div>
