@@ -24,7 +24,7 @@ const projects = [
     className: "fridge-card",
     label: "02",
     liveUrl:
-      "https://fridge-chef-5g42cryzv-maria-s-projects-0dbe1.vercel.app/",
+   "https://fridge-chef-liart.vercel.app/",
     githubUrl: "https://github.com/MariaNayer/FridgeChef",
   },
 ];
